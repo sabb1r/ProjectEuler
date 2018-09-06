@@ -31,9 +31,12 @@ text = '''
 
 text = ''.join(text.split('\n')) # Removing the line break of the copied text
 res = 0
-for i in range(len(text)-13):
+i = 0
+while i < len(text) - 13:
      sub_list = text[i:i+13]
      if '0' in sub_list:
+          ind = sub_list.index('0')
+          i += ind + 1
           continue
      sub_list = [int(x) for x in sub_list] # Converting string elements to integers
      prod = 1
@@ -41,6 +44,7 @@ for i in range(len(text)-13):
           prod *= x
      if prod > res:
           res = prod
+     i += 1
 print('The result is = ', res)
           
      
